@@ -180,10 +180,31 @@ function App() {
     })
   }
   
+  // Helper function to sanitize filename for job name
+  const sanitizeFilename = (filename: string) => {
+    // Remove file extension
+    const nameWithoutExtension = filename.replace(/\.[^/.]+$/, '')
+    // Replace special characters with spaces and clean up multiple spaces
+    return nameWithoutExtension
+      .replace(/[._-]+/g, ' ') // Replace dots, underscores, dashes with spaces
+      .replace(/[^a-zA-Z0-9\s]/g, '') // Remove other special characters
+      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+      .trim() // Remove leading/trailing spaces
+  }
+
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files
     if (files) {
-      setUploadedFiles(Array.from(files))
+      const fileArray = Array.from(files)
+      setUploadedFiles(fileArray)
+      
+      // Auto-populate job name with sanitized first file name if job name is empty
+      if (fileArray.length > 0 && !jobName.trim()) {
+        const sanitizedName = sanitizeFilename(fileArray[0].name)
+        if (sanitizedName) {
+          setJobName(sanitizedName)
+        }
+      }
     }
   }
   
