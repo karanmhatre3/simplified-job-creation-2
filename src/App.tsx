@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon, Building2, File, Languages, Check, ChevronsUpDown, Trash2, Star, FileText, FileAudio } from 'lucide-react'
+import { HomeIcon, Languages, Bot, PlusIcon, Plug, SlidersHorizontal, Building2, File, Check, ChevronsUpDown, Trash2, Star, FileText, FileAudio } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -69,24 +69,29 @@ const items = [
     icon: HomeIcon,
   },
   {
-    title: "Inbox",
+    title: "Translate",
     url: "#",
-    icon: InboxIcon,
+    icon: Languages,
   },
   {
-    title: "Calendar",
+    title: "Assistant",
     url: "#",
-    icon: CalendarIcon,
+    icon: Bot,
   },
   {
-    title: "Search",
+    title: "Create",
     url: "#",
-    icon: SearchIcon,
+    icon: PlusIcon,
   },
   {
-    title: "Settings",
+    title: "Connect",
     url: "#",
-    icon: SettingsIcon,
+    icon: Plug,
+  },
+  {
+    title: "Manage",
+    url: "#",
+    icon: SlidersHorizontal,
   },
 ]
 

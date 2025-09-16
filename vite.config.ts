@@ -11,5 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.NODE_ENV === 'production' ? '/simplified-job-creation-2/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/unified-translation/' : '/',
 })
