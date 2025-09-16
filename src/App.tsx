@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon, Building2, File, Languages, Check, ChevronsUpDown, Trash2, Star, FileText } from 'lucide-react'
+import { CalendarIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon, Building2, File, Languages, Check, ChevronsUpDown, Trash2, Star, FileText, FileAudio } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -534,7 +534,7 @@ function App() {
               <CardContent className="flex flex-col gap-6">
                 <div className="flex flex-col gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="source-language">Source Language</Label>
+                  <Label htmlFor="source-language" className="gap-0">Source Language<span className="text-red-500">*</span></Label>
                   <Popover open={sourceLanguageOpen} onOpenChange={setSourceLanguageOpen}>
                     <PopoverTrigger asChild>
                       <Button
@@ -582,7 +582,7 @@ function App() {
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="target-languages">Target Languages</Label>
+                    <Label htmlFor="target-languages" className="gap-0">Target Languages<span className="text-red-500">*</span></Label>
                     {targetLanguages.length > 0 && (
                       <Dialog open={modelsDialogOpen} onOpenChange={setModelsDialogOpen}>
                         <DialogTrigger asChild>
@@ -590,7 +590,7 @@ function App() {
                             className="text-xs text-blue-600 hover:text-blue-800"
                             onClick={handleOpenModelsDialog}
                           >
-                            Select custom models
+                            Customize models (Advanced)
                           </button>
                         </DialogTrigger>
                       <DialogContent className="sm:max-w-md max-h-[80vh] overflow-y-auto">
@@ -666,9 +666,9 @@ function App() {
                         Receive the file translation with dubbing
                       </Label>
                     </div>
-                    <Badge variant="secondary" className="flex items-center gap-1 text-xs">
-                      <Star className="h-3 w-3 fill-current" />
-                      New
+                    <Badge className="flex items-center gap-1 text-xs" style={{backgroundColor: '#E1DFF5', color: '#3529BE'}}>
+                      <FileAudio className="h-3 w-3" />
+                      For audio/video files
                     </Badge>
                   </div>
                   
@@ -749,7 +749,7 @@ function App() {
                   <CardContent className="flex flex-col gap-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="billing-code">Billing code</Label>
+                        <Label htmlFor="billing-code" className="gap-0">Billing code<span className="text-red-500">*</span></Label>
                         <Input
                           id="billing-code"
                           placeholder="Enter billing code..."
@@ -759,7 +759,7 @@ function App() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="certification-type">Type of certification</Label>
+                        <Label htmlFor="certification-type" className="gap-0">Type of certification<span className="text-red-500">*</span></Label>
                         <Select value={certificationType} onValueChange={setCertificationType}>
                           <SelectTrigger id="certification-type" className="w-full">
                             <SelectValue placeholder="Select certification type..." />
